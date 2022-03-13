@@ -4,7 +4,7 @@
 int main()
 {
     char *string = "abbabba", *state = 'E';
-    int i, n;
+    int i;
     for(i = 1 ; i < strlen(string) ; i++)
     {
         if(state == 'E' && string[i] == 'a')
