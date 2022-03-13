@@ -12,9 +12,9 @@ int main()
     int i;
     for(i = 1 ; i < strlen(string) ; i++)
     {
-        if(state == 'E' && string[i] == 'a')
+        if(state == 'E' && (string[i] == 'a' || string[i] == 'b'))
             state = '0';
-        else if(state == '0' && string[i] == 'a')
+        else if(state == '0' && (string[i] == 'a' || string[i] == 'b'))
             state = 'E';
         else    
             ;
