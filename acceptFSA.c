@@ -1,3 +1,8 @@
+/*
+    This porgram determines whether a string over {a, b}
+    is accepted by Finite State Automata
+*/
+
 #include <stdio.h>
 #include <string.h>
 
