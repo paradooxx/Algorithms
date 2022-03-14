@@ -1,4 +1,5 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 void sort(int A[], int n)
 {
@@ -21,6 +22,6 @@ int main()
 	int n = sizeof(nums)/sizeof(nums[0]);
 	sort(nums, n);
 	for(int i = 0 ; i < n ; i++)
-		std::cout << nums[i] << ", " ;
+		printf("%d\t", nums[i]);
 	return 0;
 }
