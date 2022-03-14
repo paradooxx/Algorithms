@@ -34,6 +34,43 @@ void selection_sort(int A[], int n)
 	}	
 }
 
+// not so efficient bubble sorting(exchange sorting)
+void bubble_sort(int A[], int n)       
+{
+	int temp, i, j;
+	for(i = 0 ; i < n - 1 ; i++)
+	{
+		for(j = 0 ; j < n - 1 ; j++)
+		{
+			if(A[j] > A[j + 1])
+			{
+				temp = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = temp;
+			}
+		}
+	}
+}
+
+//improved bubble sorting
+void Bubble_Sort(int A[], int n)
+{
+	int i, j, flag = 1, temp;
+	for(i = 0 ; i < n - 1 && flag == 1 ; i++)
+	{
+		flag = 0;
+		for(j = 0 ; j < n - 1 - i ; j++)
+		{
+			if(A[j] > A[j + 1])
+			{
+				temp = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = temp;
+				flag = 1;
+			}
+		}
+	}
+}
 
 int main()
 {
@@ -41,6 +78,8 @@ int main()
 	int n = sizeof(nums)/sizeof(nums[0]);
 	//insertion_sort(nums, n);
 	//selection_sort(nums, n);
+	//bubble_sort(nums, n);
+	//Bubble_Sort(nums, n);
 	for(int i = 0 ; i < n ; i++)
 		printf("%d\t", nums[i]);
 	return 0;
