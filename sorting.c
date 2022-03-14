@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sort(int A[], int n)
+void insertion_sort(int A[], int n)
 {
 	for(int j = 1 ; j < n ; j++)
 	{
@@ -39,7 +39,8 @@ int main()
 {
 	int nums[] = {5, 2, 4, 6, 1, 3, -1 };
 	int n = sizeof(nums)/sizeof(nums[0]);
-	sort(nums, n);
+	//insertion_sort(nums, n);
+	//selection_sort(nums, n);
 	for(int i = 0 ; i < n ; i++)
 		printf("%d\t", nums[i]);
 	return 0;
