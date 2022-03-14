@@ -117,6 +117,38 @@ void shell_sort(int A[], int n)
 	}
 }
 
+int partition(int A[], int lb, int ub)
+{
+	int pivot = A[lb], left = lb + 1, right = ub, temp;
+	while(left < right)
+	{
+		while(A[left] < pivot)
+			left++;
+		while(A[right] >= pivot)
+			right--;
+		if(left < right)
+		{
+			temp = A[left];
+			A[left] = A[right];
+			A[right] = temp;
+		}
+	}
+	A[lb] = A[right];
+	A[right] = pivot;
+	return right;
+}
+
+void quick_sort(int A[], int lb, int ub)
+{
+	int p;
+	if(lb < ub)
+	{
+		p = partition(A, lb, ub);
+		quick_sort(A, lb, p - 1);
+		quick_sort(A, p + 1, ub);
+	}
+}
+
 int main()
 {
 	int nums[] = {5, 2, 4, 6, 1, 3, -1 };
@@ -127,6 +159,7 @@ int main()
 	//Bubble_Sort(nums, n);
 	//merge_sort(nums, 0, n-1);
 	//shell_sort(nums, n);
+	//quick_sort(nums, 0, n-1);
 	for(int i = 0 ; i < n ; i++)
 		printf("%d\t", nums[i]);
 	return 0;
