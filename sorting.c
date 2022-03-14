@@ -102,6 +102,21 @@ void merge_sort(int A[], int left, int right)
 	}
 }
 
+void shell_sort(int A[], int n)
+{
+	int gap, p, temp, j;
+	for(gap = n/2 ; gap > 0 ; gap = gap/2)
+	{
+		for(p = gap ; p < n ; p++)
+		{
+			temp = A[p];
+			for(j = p ; j >= gap && temp < A[j - gap] ; j = j - gap)	
+				A[j] = A[j - gap];
+			A[j] = temp;
+		}
+	}
+}
+
 int main()
 {
 	int nums[] = {5, 2, 4, 6, 1, 3, -1 };
@@ -110,7 +125,8 @@ int main()
 	//selection_sort(nums, n);
 	//bubble_sort(nums, n);
 	//Bubble_Sort(nums, n);
-	merge_sort(nums, 0, n-1);
+	//merge_sort(nums, 0, n-1);
+	//shell_sort(nums, n);
 	for(int i = 0 ; i < n ; i++)
 		printf("%d\t", nums[i]);
 	return 0;
