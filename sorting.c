@@ -72,6 +72,36 @@ void Bubble_Sort(int A[], int n)
 	}
 }
 
+void merge(int A[], int left, int mid, int right)
+{
+	int k = left, p = mid + 1, i = 0;
+	int T[10];
+	while(left <= mid && p <= right)
+	{
+		if(A[left] <= A[p])
+			T[i++] = A[left++];
+		else	
+			T[i++] = A[p++];
+	}
+	while(left <= mid)
+		T[i++] = A[left++];
+	while(p <= right)
+		T[i++] = A[p++];
+	for(i = k ; i <= right; i++)
+		A[i] = T[i - k];
+}
+
+void merge_sort(int A[], int left, int right)
+{
+	if(left < right)
+	{
+		int mid = (left + right) / 2 ;
+		merge_sort(A, left, mid);
+		merge_sort(A, mid + 1, right);
+		merge(A, left, mid, right);
+	}
+}
+
 int main()
 {
 	int nums[] = {5, 2, 4, 6, 1, 3, -1 };
@@ -80,6 +110,7 @@ int main()
 	//selection_sort(nums, n);
 	//bubble_sort(nums, n);
 	//Bubble_Sort(nums, n);
+	merge_sort(nums, 0, n-1);
 	for(int i = 0 ; i < n ; i++)
 		printf("%d\t", nums[i]);
 	return 0;
