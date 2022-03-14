@@ -16,6 +16,25 @@ void sort(int A[], int n)
 	}
 }
 
+void selection_sort(int A[], int n)
+{
+	for(int i = n - 1 ; i > 0 ; i--)
+	{
+		int max = A[0], index = 0;
+		for(int j = 1 ; j <= i ; j++)
+		{
+			if(A[j] > max)
+			{
+				max = A[j];
+				index = j;
+			}
+		}
+		A[index] = A[i];
+		A[i] = max;
+	}	
+}
+
+
 int main()
 {
 	int nums[] = {5, 2, 4, 6, 1, 3, -1 };
