@@ -10,6 +10,23 @@ void linear_search(int A[], int key, int n)
     }
 }
 
+int binary_search(int A[], int key, int low, int high)
+{
+    int mid;
+    if(low > high)
+        return -1;
+    else
+    {
+        mid = (low + high) / 2;
+        if(A[mid] == key)
+            return 1;
+        else if (A[mid] < key)  
+            return binary_search(A, key, mid + 1, high);
+        else    
+            return binary_search(A, key, low, mid - 1);
+    }
+}
+
 int main()
 {
     int nums[] = {5, 6, 1, 3, 15, 9, 10, 2};
