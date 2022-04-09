@@ -4,11 +4,9 @@
 
 int main()
 {
-    int n = 4;
     int result = 26, count = 0, res;
     do{
-      res = result % 2;
-      if(res == 0)
+      if(result % 2 == 0)
       {
         result = result / 2;
         count++;
